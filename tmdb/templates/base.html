@@ -1,0 +1,82 @@
+<html>
+<head>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+   
+   
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">TMDB Clone</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Movies
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/movies/popular">Popular</a></li>
+                      <li><a class="dropdown-item" href="/movies/top">Top Rated</a></li>
+                      <li><a class="dropdown-item" href="/movies/now">Now Playing</a></li>
+                      <li><a class="dropdown-item" href="/movies/upcoming">Upcoming</a></li>
+                    </ul>
+                  </li>  
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  TV Shows
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/tv/popular">Popular</a></li>
+                    <li><a class="dropdown-item" href="/tv/top">Top Rated</a></li>
+                    <li><a class="dropdown-item" href="/tv/now">Now Playing</a></li>
+                    <li><a class="dropdown-item" href="/tv/upcoming">Upcoming</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" onsubmit="handle()"  id="search" method="GET" enctype="text/plain"  >
+              <input class="form-control me-2" type="search" id="searchbar" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" >Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+     
+<script>
+  function handle(){
+    
+    var input= document.getElementById("searchbar").value
+    var form=document.getElementById("search")
+    var url=`/search/${input}`
+    form.action= url
+    // alert(input)
+  }
+</script>        
+<!-- <script>
+  function handleClick(a,id){
+    var x= `/{a}/{id}`
+    window.location.pathname=x
+  }
+</script> -->
+
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+<footer style="text-align: center;">
+ <b> All data is courtesy of TMDB </b>
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>

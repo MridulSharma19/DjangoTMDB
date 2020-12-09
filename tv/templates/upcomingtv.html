@@ -1,0 +1,35 @@
+  
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<br />
+<br />
+<br />
+<div class="container" style="text-align: center;">
+    <h1 >TV Shows On The Air </h1>
+<div class="search" style="display: flex; flex-flow: row wrap; margin: 5px;">
+ 
+    {% for item in data.results%}    
+        <div className="item" style="display: flex; margin: 2%;width: 200px; flex-flow: column wrap;word-wrap: break-word;" >
+            <a style="color:black; text-decoration: none;" href="/tv/{{item.id}}">    
+                <img width="200" src="https://image.tmdb.org/t/p/w200/{{item.poster_path}}"  alt="{{item.name}}"/>
+                <span>{{item.name}}</span>
+                </a>
+        </div>
+        
+        
+        {% endfor %}
+    
+
+</div>
+</div>>
+
+
+
+
+
+
+
+{% endblock %}
